@@ -35,6 +35,12 @@ class BlogPostsController < ApplicationController
     end
   end
 
+  def destroy
+    @blog_post = BlogPost.find(params[:id])
+    @blog_post.destroy
+    redirect_to blog_posts_path, notice: "Blog post deleted"
+  end
+
   private
 
   def blog_post_params
