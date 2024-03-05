@@ -1,7 +1,7 @@
-<div class="d-flex justify-content-between align-items-center">
+<div class="d-flex justify-content-between align-items-start mt-4">
   <div class="d-flex flex-column justify-content-start">
     <h1><%= @blog_post.title %></h1>
-    <%= @blog_post.body %>
+    <%= @blog_post.content %>
   </div>
   <div class="d-flex justify-content-between align-items-center gap-3">
     <%= link_to "Edit", edit_blog_post_path(@blog_post), class:"btn btn-outline-secondary" %>

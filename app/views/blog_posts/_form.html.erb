@@ -5,8 +5,8 @@
     <%= form.text_field :title, class:"form-control" %>
   </div>
   <div class="mb-3">
-    <%= form.label :body %>
-    <%= form.text_area :body, class:"form-control" %>
+    <%= form.label :content %>
+    <%= form.rich_text_area :content, class:"form-control" %>
   </div>
   <%= form.submit class:"btn btn-primary" %>
 <% end %>
