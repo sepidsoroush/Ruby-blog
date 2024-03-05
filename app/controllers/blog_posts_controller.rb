@@ -3,8 +3,12 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: %i[show edit update destroy]
 
   def index
-    @blog_posts = BlogPost.all
-  end
+    if user_signed_in?
+      @blog_posts = current_user.blog_posts
+    else
+      @no_posts_message = "Please sign in to view your posts."
+    end
+end
 
   def show
   end
@@ -14,7 +18,7 @@ class BlogPostsController < ApplicationController
   end
 
   def create
-    @blog_post = BlogPost.new(blog_post_params)
+    @blog_post = current_user.blog_posts.build(blog_post_params)  
     if @blog_post.save
       redirect_to blog_posts_path, notice: "Blog post created successfully"
     else
