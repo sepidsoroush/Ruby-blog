@@ -1,0 +1,13 @@
+<h1>Create new post</h1>
+<%= form_with model:@blog_post do |form| %>
+  <%= render "shared/form_errors", form: form %>
+  <div class="mb-3">
+    <%= form.label :title %>
+    <%= form.text_field :title, class:"form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :body %>
+    <%= form.text_area :body, class:"form-control" %>
+  </div>
+  <%= form.submit "Create Post" , class:"btn btn-primary" %>
+<% end %>
